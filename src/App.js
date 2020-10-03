@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import BottomNav from './components/BottomNav';
+import TopNav from './components/TopNav';
+import Wrapper from './components/Wrapper';
 
-function App() {
-  return (
+const App = () => {
+
+  const [isLoading, setIsLoading] = useState(false)
+
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TopNav isLoading={isLoading}/>
+      <BottomNav />
+      <Wrapper setIsLoading={setIsLoading} />
     </div>
-  );
+  )
 }
 
 export default App;

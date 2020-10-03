@@ -5,9 +5,80 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(./images/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.avatar {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border: none;
+  color: #172b4d;
+  background-color: transparent;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: center;
+  margin-top: 2px;
+  margin-left: 3px;
+}
+
+button.profile {
+  background-image: url('./images/profile.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: none;
+}
+
+button.profile1 {
+  background-image: url('./images/profile.jpg');
+  background-size: cover;
+  border-radius: 50%;
+  border: none;
+}
+
+button.profile2 {
+  background-image: url('./images/pp1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: none;
+}
+
+button.plus {
+  border-radius: 50%;
+  border: none;
+}
+
+.trello-fadein {
+  animation: fadeIn 150ms ease-out forwards;
+}
+
+.trello-black {
+  color: #172b4d;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

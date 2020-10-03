@@ -1,0 +1,27 @@
+div.add-list {
+    min-width: 272px;
+    width: 272px;
+    max-width: 272px;
+    color: #172b4d;
+    font-size: 14px;
+    font-weight: normal;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+  
+div.add-list:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+#list-title-input {
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+}
+
+div.add-list-popup {
+    min-width: 272px;
+    max-width: 272px;
+    display: block;
+    background-color:#ebecf0;
+}

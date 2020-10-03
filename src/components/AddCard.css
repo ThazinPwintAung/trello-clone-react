@@ -1,0 +1,12 @@
+#card-title-input {
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+}
+
+div.add-card-popup {
+    max-width: 272px;
+    display: block;
+    background-color:#ebecf0;
+}

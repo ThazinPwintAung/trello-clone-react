@@ -1,0 +1,11 @@
+.nav-1 {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.nav-1 .btn {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.nav-1 .btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
