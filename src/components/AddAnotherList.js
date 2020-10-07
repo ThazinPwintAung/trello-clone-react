@@ -30,7 +30,8 @@ const AddAnotherList = ({ addList, position}) => {
         {
             addListClick ? (
                 <div className="add-list-popup rounded trello-fadein m-1 p-1">
-                    <input autoFocus type="text" className="p-1" id="list-title-input" value={listTitle} onChange={e => setListTitle(e.target.value)} placeholder="Enter list title..."/>
+                    <input autoFocus type="text" className="p-1" id="list-title-input" value={listTitle} onChange={e => setListTitle(e.target.value)} 
+                     placeholder="Enter list title..."/>
                     <div className="d-flex justify-content-between align-items-center pt-1">
                         <button type="submit" className="btn btn-sm btn-success my-1" onClick={submitList}>Add List</button>
                         <button className="btn btn-lg my-1 mx-2 p-0 text-danger" onClick={() => setAddListClick(false)}><i className="fa fa-close"></i></button>

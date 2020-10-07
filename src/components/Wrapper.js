@@ -24,14 +24,14 @@ const Wrapper = ({setIsLoading}) => {
     },[])
 
     const addList = (list) => {
-        setLists((prevList) => [...prevList, list]);
+        setLists((prevLists) => [...prevLists, list]);
     };
 
     return(
         <div id="wrapper" className="px-2">
             {
                 lists && lists.map(list => (
-                    <Lists key={list.id} list={list} card={list.cards}/>
+                    <Lists key={list.id} list={list} card={list.cards} />
                 ))
             }
             { lists.length !== 0 && 

@@ -1,7 +1,7 @@
 #card-title-input {
     width: 100%;
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: normal;
     border: none;
 }
 
@@ -9,4 +9,14 @@ div.add-card-popup {
     max-width: 272px;
     display: block;
     background-color:#ebecf0;
+}
+
+button.btn-success {
+    background-color: #007F00 !important;
+    color: white !important;
+}
+
+button.btn-success:hover {
+    background-color: #19ac19 !important;
+    border-color: #19ac19 !important;
 }

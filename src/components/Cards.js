@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Label from './Label'
 import Member from './Member'
 import './Cards.css'
+import CardModal from './CardModal'
 
 const Cards = ({card}) => {
+    const [cardModalOpen, setCardModalOpen] = useState(false)
+
+    const openModal = () => {
+        setCardModalOpen(true)
+        console.log("modal opens.")
+        return( <CardModal />)
+    }
 
     return (
-        <div className="trello-card d-block mb-2 pt-2">
+        <div className="trello-card d-block mb-2 pt-2" onClick={openModal} onBlur={() => setCardModalOpen(false)}>
             {
                 card.labels && card.labels.map(label => (
                     <Label key={label.id} label={label}/>
@@ -15,8 +23,8 @@ const Cards = ({card}) => {
             <h6 className="trello-title">{card.title}</h6>
             <div className="d-flex flex-wrap justify-content-between align-items-end">
                 <div className="d-flex flex-nowrap align-items-center">
-                    {card.description ? <small className="d-inline-block m-1 mr-2 text-secondary"><i className="fa fa-bars"></i></small> : ''}
-                    {card.checklists.length ? <small className="d-inline-block m-1 mr-2 text-secondary"><i className="fa fa-check-square-o"></i></small> : ''}
+                    {card.description && <small className="d-inline-block m-1 mr-2 text-secondary"><i className="fa fa-bars"></i></small> }
+                    {card.checklists ? card.checklists.map(chk => (<small className="d-inline-block m-1 mr-2 text-secondary" key={chk.id}><i className="fa fa-check-square-o"></i></small>)) : ''}
                 </div>
                 <div className="d-flex flex-wrap justify-content-end flex-grow-1 align-items-center">
                     {
