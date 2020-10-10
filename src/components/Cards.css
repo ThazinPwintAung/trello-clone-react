@@ -13,3 +13,7 @@ div.trello-card:hover {
 h6.trello-title {
     font-weight: normal;
 }
+
+.trello-card .fa-edit:hover {
+    opacity: 0.8 !important;
+}

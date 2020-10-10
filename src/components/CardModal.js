@@ -1,41 +1,50 @@
 import React from 'react'
 import './CardModal.css'
 
-const CardModal = () => {
+const CardModal = ({card, show, handleClose}) => {
+
+    console.log("modal displays");
+
+    const showHideClassName = show ? "modal display-block" : "modal display-none";
+  
     return (
-        <div id="cardModal" class="modal fade trello-black" tabindex="-1">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="cardTitle"></h5>
-                <small id="inListDesc" class="pl-3 text-secondary">in list <strong id="inListTitle"></strong></small>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div id="cardModal" className={showHideClassName} >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="cardTitle">{card.title}</h5>
+                <small id="inListDesc" className="pl-3 text-secondary">in list <strong id="inListTitle"></strong></small>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body p-1">
-                <div class="d-flex mt-3">
+              <div className="modal-body p-1">
+                <div className="d-flex mt-3">
                   <h6>
-                    <i class="fa fa-bars"></i>
+                    <i className="fa fa-bars"></i>
                   </h6>
-                  <div class="flex-grow-1">
+                  <div className="flex-grow-1">
                     <h6>Description</h6>
-                    <p id="cardDesc"></p>
+                    <p id="cardDesc">{card.description}</p>
                   </div>
                 </div>
-                <div class="d-flex">
+                <div className="d-flex">
                   <h6>
-                    <i class="fa fa-list-ul"></i>
+                    <i className="fa fa-list-ul"></i>
                   </h6>
-                  <div class="flex-grow-1">
+                  <div className="flex-grow-1">
                     <h6>Checklist</h6>
                     <div id="chkli-wrapper">
+                    {card.checklists ? 
+                      card.checklists.map(chkli => (<small className="d-inline-block m-1 mr-2 text-secondary" key={chkli.id}><i className="fa fa-check-square-o"></i></small>))
+                    : <p style={{opacity: 0.7}}>No Checklist</p>
+                    }
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Save Changes</button>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-sm btn-success" onClick={handleClose}><i className="fa fa-save"></i> Save Changes</button>
               </div>
             </div>
           </div>
