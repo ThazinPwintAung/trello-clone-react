@@ -13,7 +13,6 @@ const Wrapper = ({setIsLoading}) => {
 
     const fetchLists = async () => {
         console.log("use effect running");
-        setIsLoading(true)
         try{
             const res = await Axios.get("https://trello-clone-ppm.herokuapp.com/list")
             setLists(res.data)
@@ -36,17 +35,14 @@ const Wrapper = ({setIsLoading}) => {
        if(listid){
            closeListMenu(true)
            if(window.confirm("Are you sure to delete this list?")){
-               setIsLoading(true)
                 Axios.delete(`https://trello-clone-ppm.herokuapp.com/list/${listid}`)
                .then(res => {
                    console.log(res);
                    console.log("Deleted successfully");
-                   setIsLoading(false)
                    listid = undefined
                })
                .catch(err => {
                    console.log(err);
-                   setIsLoading(false)
                    listid = undefined
                })
            }

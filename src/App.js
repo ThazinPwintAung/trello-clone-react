@@ -6,7 +6,7 @@ import Wrapper from './components/Wrapper';
 
 const App = () => {
 
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   return(
     <div className="App">
