@@ -1,28 +1,51 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import Label from './Label'
 import Member from './Member'
 import './Cards.css'
-import CardModal from './CardModal'
+import Axios from 'axios'
+import EditCard from './EditCard'
 
-const Cards = ({card}) => {
-    const [showCardModal, setShowCardModal] = useState(false)
+const Cards = ({card, cardId}) => {
+    const [c, setCard] = useState({})
     const [editCardClick, setEditCardClick] = useState(false)
+    const [cardid, setCardid] = useState(cardId)
 
-    const showModal = () => {
-        setShowCardModal(true);
+    const cardMenuPopup = document.getElementById("card-menu-popup")
+
+    const editCard = (e, cid) => {
+        setEditCardClick(true);
+        try{
+            Axios.get(`https://trello-clone-ppm.herokuapp.com/card/${cid}`)
+            .then(res => {
+                setCard(res.data)
+            })
+            showCardMenu(e, cid)
+        }catch{
+                setCard({})
+        }
     }
 
-    const hideModal = () => {
-        setShowCardModal(false);
+    const showCardMenu = (e, cid) => {
+        e.preventDefault()
+        setCardid(cid)
+        let btn = e.target
+        if(btn.nodeName === "i" || btn.nodeName ==="I"){
+            const loc = btn.getBoundingClientRect();
+            cardMenuPopup.style.top = loc.top + loc.height + 5 + "px"
+            cardMenuPopup.style.left = loc.left + "px"
+        }
+        closeCardMenu(false)
     }
 
-    const editCard = () => {
-        setEditCardClick(true)
+    const closeCardMenu = (close) => {
+        if(cardMenuPopup){
+            cardMenuPopup.style.display = close ? "none":"block"
+        }
     }
-
+    
     return (
-        <div className="trello-card d-block mb-2 pt-2" onClick={showModal} >
-            <i className="far fa-edit float-right" style={{opacity: 0.1}} onClick={editCard}></i>
+        <div className="trello-card d-block mb-2 pt-2">
+            <i className="far fa-edit float-right" style={{opacity: 0.1}} onClick={(e) => editCard(e, cardid)}></i>
             {
                 card.labels && card.labels.map(label => (
                     <Label key={label.id} label={label}/>
@@ -42,9 +65,8 @@ const Cards = ({card}) => {
                     }
                 </div>
             </div>
-            {/*<CardModal card={card} show={showCardModal} handleClose={hideModal}/>*/}
             {
-                editCardClick 
+                editCardClick && <EditCard card={c} cardTitle={c.title} />
             }
         </div>
     )

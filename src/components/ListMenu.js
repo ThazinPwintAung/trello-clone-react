@@ -1,7 +1,7 @@
 import React from 'react'
 import './ListMenu.css'
 
-const ListMenu = ({listId, listMenuClicked, closeListMenu, deleteList}) => {
+const ListMenu = ({listId, deleteList}) => {
     return (
         <div className="list-menu rounded trello-fadein p-1" id="list-menu-popup">
             <ul className="list-group list-group-flush">
@@ -13,7 +13,7 @@ const ListMenu = ({listId, listMenuClicked, closeListMenu, deleteList}) => {
                 onClick={() => deleteList(listId)}>
                 <i className="fa fa-trash"></i>&nbsp;&nbsp;&nbsp;Delete...</li>
             </ul>
-      </div>
+        </div>
     )
 }
 

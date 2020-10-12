@@ -74,7 +74,7 @@ const Wrapper = ({setIsLoading}) => {
             {
                 lists && lists.map(list => (
                     <Lists key={list.id} list={list} card={list.cards}
-                    showListMenu={showListMenu} />
+                    showListMenu={showListMenu}/>
                 ))
             }
             { lists.length !== 0 &&
@@ -83,8 +83,8 @@ const Wrapper = ({setIsLoading}) => {
 
             <ListMenu
             listId={listId} 
-            closeListMenu={closeListMenu}
             deleteList={deleteList} />
+
         </div>
     )
 

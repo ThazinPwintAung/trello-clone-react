@@ -1,7 +1,7 @@
 import React from 'react'
 import './CardModal.css'
 
-const CardModal = ({card, show, handleClose}) => {
+const CardModal = ({card, listTitle, show}) => {
 
     console.log("modal displays");
 
@@ -13,7 +13,7 @@ const CardModal = ({card, show, handleClose}) => {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="cardTitle">{card.title}</h5>
-                <small id="inListDesc" className="pl-3 text-secondary">in list <strong id="inListTitle"></strong></small>
+                <small id="inListDesc" className="pl-3 text-secondary">in list <strong id="inListTitle">{listTitle}</strong></small>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -44,7 +44,7 @@ const CardModal = ({card, show, handleClose}) => {
                 </div>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-sm btn-success" onClick={handleClose}><i className="fa fa-save"></i> Save Changes</button>
+                <button type="button" className="btn btn-sm btn-success"><i className="fa fa-save"></i> Save Changes</button>
               </div>
             </div>
           </div>

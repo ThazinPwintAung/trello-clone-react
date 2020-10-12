@@ -9,7 +9,7 @@ const Lists = ({list, card, showListMenu}) => {
     const [editableListTitle, setEditableListTitle] = useState(list.title)
     const [listTitleClick, setListTitleClick] = useState(false)
 
-    function addCard(newCard) {
+    const addCard = (newCard) =>{
         console.log(newCard)
         setCards(prevCards => prevCards ? [...prevCards, newCard] : [newCard])
     }
@@ -50,11 +50,13 @@ const Lists = ({list, card, showListMenu}) => {
             <div className="px-1">
                 {
                     cards && cards.map(card => (
-                        <Cards key={card.id} card={card} listTitle={list.title} listId={list.id}/>
+                        <Cards key={card.id} card={card} cardId={card.id}/>
                     ))
                 }
             </div>
+
             <AddCard addCard={addCard} listId={list.id} />
+            
         </div>
     )
 }

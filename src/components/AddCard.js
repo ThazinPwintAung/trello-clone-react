@@ -36,7 +36,7 @@ const AddCard = ({listId, addCard }) => {
         {
             addCardClick ? (
                 <div className="add-card-popup rounded trello-fadein m-1 p-1">
-                    <input type="text" className="p-1 rounded" id="card-title-input" value={cardTitle} onChange={e => setCardTitle(e.target.value)} 
+                    <textarea className="p-1 rounded" id="card-title-input" value={cardTitle} onChange={e => setCardTitle(e.target.value)} 
                     placeholder="Enter a title for this card..."/>
                     <div className="d-flex justify-content-between align-items-center pt-1">
                         <button type="submit" className="btn btn-sm btn-success my-1" onClick={submitCard}>Add Card</button>
