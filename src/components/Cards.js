@@ -45,7 +45,7 @@ const Cards = ({card, cardId}) => {
     
     return (
         <div className="trello-card d-block mb-2 pt-2">
-            <i className="far fa-edit float-right" style={{opacity: 0.1}} onClick={(e) => editCard(e, cardid)}></i>
+            <i className="far fa-edit float-right" style={{opacity: 0.1}} onClick={(e) => editCard(e, cardid)} onDoubleClick={() => closeCardMenu(true)}></i>
             {
                 card.labels && card.labels.map(label => (
                     <Label key={label.id} label={label}/>

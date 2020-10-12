@@ -2,6 +2,7 @@ import React from 'react'
 import './EditCard.css'
 
 const EditCard = (cardTitle) => {
+   
     return(
         <div className="card-menu rounded trello-fadein p-1" id="card-menu-popup">
             <ul className="list-group list-group-flush">
